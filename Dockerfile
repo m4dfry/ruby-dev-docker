@@ -12,6 +12,7 @@ RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 
 # Add files.
 ADD root/.vimrc /root/.vimrc
+ADD root/.bashrc /root/.bashrc
 
 # Set environment variables.
 ENV HOME /root
