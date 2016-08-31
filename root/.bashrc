@@ -25,7 +25,7 @@ if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
     debian_chroot=$(cat /etc/debian_chroot)
 fi
 
-PS1='\[\e[0;32m\]\t > \[\e[1;33m\]\W $ \e[m '
+PS1='\[\e[0;32m\]\t`if [ $? = 0 ]; then echo "\[\e[1;32m\] ✔ "; else echo "\[\e[1;31m\] ✘ "; fi`\[\e[0;33m\]\W\[\e[1;37m\] :`[[ $(git status 2> /dev/null) =~ Changes\ to\ be\ committed: ]] && echo "\[\e[33m\]" || echo "\[\e[31m\]"``[[ ! $(git status 2> /dev/null) =~ nothing\ to\ commit,\ working\ .+\ clean ]] || echo "\[\e[32m\]"`$(__git_ps1 "(%s)\[\e[00m\]")\[\e[00m\]\$ '
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -44,10 +44,5 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
-    . /etc/bash_completion
-fi
-
+#enable git auto-completion
+source /etc/bash_completion.d/git-prompt
