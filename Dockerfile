@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-ENV RUNTIME_PACKAGES="ruby"
+ENV RUNTIME_PACKAGES="ruby libsqlite3-dev"
 ENV BUILD_PACKAGES="ruby-dev gcc libssl-dev build-essential"
 ENV UTIL_PACKAGES="vim curl git"
 
