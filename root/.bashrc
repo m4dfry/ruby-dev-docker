@@ -39,6 +39,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# fix directory color in LS
+LS_COLORS='di=4;96'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'

@@ -5,7 +5,7 @@ ENV UTIL_PACKAGES="vim curl git"
 
 RUN apt-get -y update && apt-get install -y $RUNTIME_PACKAGES $BUILD_PACKAGES $UTIL_PACKAGES && \
     apt-get clean
-RUN gem install dotenv ably eventmachine logger json
+RUN gem install dotenv ably eventmachine logger json rails
 
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
     curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
