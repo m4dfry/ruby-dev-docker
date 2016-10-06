@@ -49,3 +49,6 @@ alias l='ls -CF'
 
 #enable git auto-completion
 source /etc/bash_completion.d/git-prompt
+
+#ADD TO MEMO THE LAST CMD
+alias REMEMBER="history | tail -n2 | head -n1 >> .memo"
